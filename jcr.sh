@@ -12,7 +12,7 @@ fi
 num=$(egrep -c 'class\ +(.*)[{$]' $1) #共有几个.class文件
 echo "共有${num}个类"
 if [[ $num == '1'  ]]; then
-	classOnly=$(egrep '.*class\ +(.*)[{\n]' var01.java \
+	classOnly=$(egrep '.*class\ +(.*)[{\n]' $1 \
 		| sed -r 's/.*class\ +(.*)[{\n]/\1/g')	#将唯一的类名提取出来
 	echo $classOnly" :"
 	java $classOnly	#运行唯一的一个类	
